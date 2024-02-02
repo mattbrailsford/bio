@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Default
+permalink: /
 ---
 
 <div class="m-5">
