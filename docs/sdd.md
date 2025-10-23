@@ -17,4 +17,5 @@ permalink: /sdd
 
 * [Cursor (Plan Mode)](https://cursor.com/blog/plan-mode)
 * [Precursor](https://www.precursor.tools/)
-* [CC-SDD](https://github.com/pdoronila/cc-sdd)
+* [CC-SDD](https://github.com/pdoronila/cc-sdd)
+
