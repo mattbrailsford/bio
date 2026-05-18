@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>QR Code</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: system-ui;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #111;
+      color: white;
+    }
+
+    .wrap {
+      text-align: center;
+    }
+
+    canvas {
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    a {
+      color: #7dd3fc;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>QR Code</h1>
+
+    <canvas id="qr"></canvas>
+
+    <p>
+      <a id="link" target="_blank"></a>
+    </p>
+
+    <button id="download">Download PNG</button>
+  </div>
+
+    <script>
+    // Example:
+    // /bio/umbracoai/qr
+    // becomes:
+    // /bio/umbracoai/
+
+    const originalPath =
+        sessionStorage.redirect || window.location.pathname;
+
+    sessionStorage.removeItem("redirect");
+
+    let path = originalPath;
+
+    if (path.endsWith("/qr")) {
+        path = path.slice(0, -3);
+    }
+
+    const targetUrl = window.location.origin + path;
+
+    document.getElementById("link").href = targetUrl;
+    document.getElementById("link").textContent = targetUrl;
+
+    const canvas = document.getElementById("qr");
+
+    QRCode.toCanvas(canvas, targetUrl, {
+        width: 600
+    });
+
+    document.getElementById("download").onclick = () => {
+        const a = document.createElement("a");
+        a.download = "qr-code.png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+    };
+    </script>
+</body>
+</html>
