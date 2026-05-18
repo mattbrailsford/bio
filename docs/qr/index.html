@@ -54,7 +54,7 @@
 
     sessionStorage.removeItem("redirect");
 
-    let path = originalPath;
+    let path = originalPath.replace(/\/$/, "");
 
     if (path.endsWith("/qr")) {
         path = path.slice(0, -3);
