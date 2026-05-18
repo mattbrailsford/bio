@@ -49,10 +49,11 @@
     // becomes:
     // /bio/umbracoai/
 
-    const originalPath =
-        sessionStorage.redirect || window.location.pathname;
+    const originalPath = sessionStorage.redirect || window.location.pathname;
 
     sessionStorage.removeItem("redirect");
+
+    window.history.replaceState({}, "", originalPath);
 
     let path = originalPath.replace(/\/$/, "");
 
