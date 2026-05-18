@@ -70,7 +70,8 @@
     new QRCode(document.getElementById("qr"), {
       text: targetUrl,
       width: 600,
-      height: 600
+      height: 600,
+      correctLevel: QRCode.CorrectLevel.L
     });
 
     document.getElementById("download").onclick = () => {
