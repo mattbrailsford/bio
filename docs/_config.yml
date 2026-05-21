@@ -1,5 +1,33 @@
-defaults:
-  - 
-    values:
+title: Matt Brailsford
+description: >-
+  Quick link bio pages for Matt Brailsford —
+  Staff Engineer at Umbraco.
+url: "https://mattbrailsford.github.io"
+baseurl: "/bio"
+author:
+  name: Matt Brailsford
+  twitter: mattbrailsford
 
-      job_title: Satff Engineer | Umbraco
+twitter:
+  username: mattbrailsford
+  card: summary
+
+social:
+  name: Matt Brailsford
+  links:
+    - https://bsky.app/profile/mattbrailsford.dev
+    - https://umbracocommunity.social/@matt
+    - https://github.com/mattbrailsford
+    - https://www.linkedin.com/in/mattbrailsford/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      job_title: "Staff Engineer | Umbraco"
+      image: https://mattbrailsford.dev/logo-128.png

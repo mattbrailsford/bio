@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Default
+title: UMB.FYI
+description: UMB.FYI — the Umbraco community blog aggregator.
 permalink: /umbfyi
 job_title: Creator | UMB.FYI
 ---

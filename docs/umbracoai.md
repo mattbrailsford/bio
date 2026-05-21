@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Default
+title: Umbraco AI
+description: AI in Umbraco — official docs, source code, and TheRabbitHole.
 permalink: /umbracoai
 job_title: AI Staff Engineer @ Umbraco
 ---

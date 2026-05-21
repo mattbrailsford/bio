@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Default
+title: Matt Brailsford
+description: Staff Engineer at Umbraco. Links to my socials, projects, and writing.
 permalink: /
 ---
 
