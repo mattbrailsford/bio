@@ -3,7 +3,7 @@ title: Umbraco AI
 description: AI in Umbraco — official docs, source code, and TheRabbitHole.
 permalink: /umbracoai
 job_title: AI Staff Engineer @ Umbraco
-accent: "#a78bfa"
+accent: "#F6339B"
 ---
 
 * [TheRabbitHole Source Code](https://github.com/mattbrailsford/TheRabbitHole)
