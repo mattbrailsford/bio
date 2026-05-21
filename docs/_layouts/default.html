@@ -30,6 +30,7 @@
             }
         }
         .card {
+            position: relative;
             width: 100%;
             margin: 0 auto;
             background: white;
@@ -40,6 +41,109 @@
                 box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
                 border-radius: 1rem;
             }
+        }
+        .qr-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0.5rem;
+            color: rgb(100 116 139);
+            cursor: pointer;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+        .qr-btn:hover,
+        .qr-btn:focus-visible {
+            color: var(--accent-hover);
+            background: rgba(0, 0, 0, 0.04);
+        }
+        .qr-btn svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+        .qr-modal {
+            border: none;
+            border-radius: 1rem;
+            padding: 0;
+            max-width: min(90vw, 22rem);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .qr-modal::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .qr-modal-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .qr-modal-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            line-height: 1;
+            background: transparent;
+            border: none;
+            border-radius: 0.5rem;
+            color: rgb(100 116 139);
+            cursor: pointer;
+        }
+        .qr-modal-close:hover,
+        .qr-modal-close:focus-visible {
+            background: rgba(0, 0, 0, 0.06);
+        }
+        .qr-modal h2 {
+            margin: 0 0 1rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .qr-output {
+            width: 100%;
+            max-width: 16rem;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0.5rem;
+        }
+        .qr-output canvas,
+        .qr-output img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .qr-url {
+            margin: 0.75rem 0 1rem;
+            font-size: 0.75rem;
+            color: rgb(100 116 139);
+            word-break: break-all;
+        }
+        .qr-download {
+            display: inline-block;
+            padding: 0.625rem 1.25rem;
+            background: var(--accent);
+            color: black;
+            border: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .qr-download:hover,
+        .qr-download:focus-visible {
+            background: var(--accent-hover);
         }
         .avatar-wrap {
             position: relative;
@@ -138,6 +242,12 @@
 <body>
     <main class="card">
 
+        <button type="button" class="qr-btn" aria-label="Show QR code for this page" data-qr-open>
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 0 1 3 9.375v-4.5ZM4.875 4.5a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5Zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 0 1-1.875-1.875v-4.5Zm1.875-.375a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5ZM6 6.75A.75.75 0 0 1 6.75 6h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75A.75.75 0 0 1 6 7.5v-.75Zm9.75 0A.75.75 0 0 1 16.5 6h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75ZM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 0 1 3 19.125v-4.5Zm1.875-.375a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5ZM6 16.5a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm7.5-1.875a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm3.75 0a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm-3.75 3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm0 3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm3.75-3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Zm0 3.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75Z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
         <div class="avatar-wrap">
             <img class="avatar" src="https://mattbrailsford.dev/logo-128.png" alt="Matt Brailsford" />
         </div>
@@ -178,5 +288,61 @@
         </div>
 
     </main>
+
+    <dialog class="qr-modal" aria-labelledby="qr-title" data-qr-modal>
+        <div class="qr-modal-body">
+            <button type="button" class="qr-modal-close" aria-label="Close" data-qr-close>&times;</button>
+            <h2 id="qr-title">QR Code</h2>
+            <div class="qr-output" data-qr-output></div>
+            <p class="qr-url" data-qr-url></p>
+            <button type="button" class="qr-download" data-qr-download>Download PNG</button>
+        </div>
+    </dialog>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        (function () {
+            const openBtn = document.querySelector('[data-qr-open]');
+            const modal = document.querySelector('[data-qr-modal]');
+            const closeBtn = document.querySelector('[data-qr-close]');
+            const output = document.querySelector('[data-qr-output]');
+            const urlEl = document.querySelector('[data-qr-url]');
+            const downloadBtn = document.querySelector('[data-qr-download]');
+
+            let generated = false;
+
+            openBtn.addEventListener('click', () => {
+                if (!generated) {
+                    const url = window.location.href;
+                    new QRCode(output, {
+                        text: url,
+                        width: 1200,
+                        height: 1200,
+                        correctLevel: QRCode.CorrectLevel.L
+                    });
+                    urlEl.textContent = url;
+                    generated = true;
+                }
+                modal.showModal();
+            });
+
+            closeBtn.addEventListener('click', () => modal.close());
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.close();
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                const canvas = output.querySelector('canvas');
+                const img = output.querySelector('img');
+                const href = canvas ? canvas.toDataURL('image/png') : img && img.src;
+                if (!href) return;
+                const link = document.createElement('a');
+                link.download = 'qr-code.png';
+                link.href = href;
+                link.click();
+            });
+        })();
+    </script>
 </body>
 </html>
