@@ -3,6 +3,7 @@ title: Umbraco AI
 description: AI in Umbraco — official docs, source code, and TheRabbitHole.
 permalink: /umbracoai
 job_title: AI Staff Engineer @ Umbraco
+footer_label: Umbraco Codegarden 2026
 ---
 
 * [TheRabbitHole Source Code](https://github.com/mattbrailsford/TheRabbitHole)
