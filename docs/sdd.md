@@ -2,7 +2,6 @@
 title: SPECKL & Spec-Driven Development
 description: SPECKL — a human-first approach to AI-assisted development — plus related spec-driven tools.
 permalink: /sdd
-accent: "#fb923c"
 ---
 
 ### SPECKL

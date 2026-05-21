@@ -3,7 +3,6 @@ title: UMB.FYI
 description: UMB.FYI — the Umbraco community blog aggregator.
 permalink: /umbfyi
 job_title: Creator | UMB.FYI
-accent: "#60a5fa"
 ---
 
 * [UMB.FYI](https://umb.fyi)
