@@ -9,9 +9,10 @@
     <style>
         :root {
             --accent: rgb(74 222 128);
-            --accent-hover: rgb(34 197 94);
+            --accent-strong: color-mix(in srgb, var(--accent), black 45%);
             --bg: #edf2f7;
             --muted: rgb(203 213 225);
+            --muted-text: rgb(100 116 139);
         }
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; }
@@ -62,7 +63,7 @@
         }
         .qr-btn:hover,
         .qr-btn:focus-visible {
-            color: var(--accent-hover);
+            color: var(--accent-strong);
         }
         .qr-btn svg {
             width: 1.25rem;
@@ -102,7 +103,7 @@
         }
         .qr-modal-close:hover,
         .qr-modal-close:focus-visible {
-            color: var(--accent-hover);
+            color: var(--accent-strong);
         }
         .qr-modal h2 {
             margin: 0 0 1rem;
@@ -127,7 +128,7 @@
         .qr-url {
             margin: 0.75rem 0 1rem;
             font-size: 0.75rem;
-            color: rgb(100 116 139);
+            color: var(--muted-text);
             word-break: break-all;
         }
         .qr-download {
@@ -135,15 +136,17 @@
             padding: 0.625rem 1.25rem;
             background: var(--accent);
             color: black;
-            border: none;
+            border: 2px solid var(--accent);
             border-radius: 2rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.15s ease;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
         .qr-download:hover,
         .qr-download:focus-visible {
-            background: var(--accent-hover);
+            background: var(--accent-strong);
+            border-color: var(--accent-strong);
+            color: white;
         }
         .avatar-wrap {
             position: relative;
@@ -167,7 +170,7 @@
         .subtitle {
             margin: 0;
             text-align: center;
-            font-weight: 300;
+            font-weight: 400;
         }
         .socials {
             display: flex;
@@ -183,7 +186,7 @@
         }
         .socials a:hover,
         .socials a:focus-visible {
-            color: var(--accent-hover);
+            color: var(--accent-strong);
         }
         .socials svg {
             width: 2rem;
@@ -210,34 +213,54 @@
             justify-content: center;
             margin: 0.5rem;
             padding: 1rem;
+            border: 2px solid var(--accent);
             border-radius: 2rem;
             background: var(--accent);
             color: black;
             text-decoration: none;
             text-align: center;
-            transition: background 0.15s ease;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
         .links a:hover, .links a:focus-visible {
-            background: var(--accent-hover);
+            background: var(--accent-strong);
+            border-color: var(--accent-strong);
+            color: white;
         }
-        .credits {
+        .links a.secondary,
+        .links li.secondary a,
+        .links .secondary > a {
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent-strong);
+        }
+        .links a.secondary:hover,
+        .links a.secondary:focus-visible,
+        .links li.secondary a:hover,
+        .links li.secondary a:focus-visible,
+        .links .secondary > a:hover,
+        .links .secondary > a:focus-visible {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: black;
+        }
+        .footer {
             padding: 1.25rem;
-        }
-        .credits-label {
-            margin: 0;
-            font-size: 0.75rem;
-            color: var(--muted);
             text-align: center;
-            text-transform: uppercase;
         }
-        .credits-name {
-            margin: 0;
+        .footer a {
+            color: var(--muted-text);
             font-size: 0.875rem;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+        .footer a:hover,
+        .footer a:focus-visible {
+            color: var(--accent-strong);
         }
     </style>
+    {% if page.accent %}
+    <style>:root { --accent: {{ page.accent }}; }</style>
+    {% endif %}
 </head>
 <body>
     <main class="card">
@@ -293,10 +316,11 @@
             {{ content }}
         </div>
 
-        <div class="credits">
-            <p class="credits-label">made by</p>
-            <p class="credits-name">mattbrailsford</p>
+        {% if page.footer_link %}
+        <div class="footer">
+            <a href="{{ page.footer_link }}">{{ page.footer_label | default: "Learn more" }}</a>
         </div>
+        {% endif %}
 
     </main>
 
