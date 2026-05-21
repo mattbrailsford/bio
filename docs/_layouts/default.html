@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="https://mattbrailsford.dev/logo-128.png">
+    <link rel="preload" href="{{ '/fonts/hf-bigcuat-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ '/fonts/hf-bigcuat-regular.css' | relative_url }}">
     {% seo %}
     <style>
         :root {
@@ -13,6 +15,9 @@
             --bg: #edf2f7;
             --muted: rgb(203 213 225);
             --muted-text: rgb(100 116 139);
+            --secondary-bg: rgb(241 245 249);
+            --secondary-border: rgb(226 232 240);
+            --secondary-text: rgb(51 65 85);
         }
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; }
@@ -34,6 +39,7 @@
             position: relative;
             width: 100%;
             margin: 0 auto;
+            padding-bottom: 1.25rem;
             background: white;
         }
         @media (min-width: 768px) {
@@ -163,9 +169,11 @@
         }
         .name {
             margin: 3.5rem 0 0;
-            font-size: 1.875rem;
-            font-weight: 700;
+            font-family: 'HFBigcuat', system-ui, sans-serif;
+            font-size: 2.25rem;
+            font-weight: normal;
             text-align: center;
+            text-transform: uppercase;
         }
         .subtitle {
             margin: 0;
@@ -229,9 +237,9 @@
         .links a.secondary,
         .links li.secondary a,
         .links .secondary > a {
-            background: transparent;
-            border-color: var(--accent);
-            color: var(--accent-strong);
+            background: var(--secondary-bg);
+            border-color: var(--secondary-border);
+            color: var(--secondary-text);
         }
         .links a.secondary:hover,
         .links a.secondary:focus-visible,
@@ -244,7 +252,7 @@
             color: black;
         }
         .footer {
-            padding: 1.25rem;
+            padding: 0.75rem 1.25rem 0;
             text-align: center;
         }
         .footer a {
