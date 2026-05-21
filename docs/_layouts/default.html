@@ -75,6 +75,11 @@
         .socials a {
             color: black;
             display: inline-flex;
+            transition: color 0.15s ease;
+        }
+        .socials a:hover,
+        .socials a:focus-visible {
+            color: var(--accent-hover);
         }
         .socials svg {
             width: 2rem;
@@ -106,8 +111,9 @@
             color: black;
             text-decoration: none;
             text-align: center;
+            transition: background 0.15s ease;
         }
-        .links a:hover, .links a:focus {
+        .links a:hover, .links a:focus-visible {
             background: var(--accent-hover);
         }
         .credits {
