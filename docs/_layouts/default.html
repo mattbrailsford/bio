@@ -31,7 +31,10 @@
             body {
                 align-items: center;
                 min-height: 100vh;
-                background: var(--bg) url("{{ '/assets/bg.png' | relative_url }}") repeat;
+                background:
+                    linear-gradient(rgb(237 242 247 / 0.85), rgb(237 242 247 / 0.85)),
+                    url("{{ '/assets/bg.png' | relative_url }}") repeat,
+                    var(--bg);
             }
         }
         .card {
